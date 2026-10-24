@@ -1,0 +1,14 @@
+# Remote State für Teamarbeit: nach backend.tf kopieren, Bucket anpassen,
+# dann "terraform init -migrate-state".
+# use_lockfile (ab Terraform 1.10) sperrt den State per Lock-Datei in S3,
+# eine separate DynamoDB-Lock-Tabelle ist dafür nicht mehr nötig.
+
+terraform {
+  backend "s3" {
+    bucket       = "mein-terraform-state-bucket"
+    key          = "mobility-budget/terraform.tfstate"
+    region       = "eu-central-1"
+    encrypt      = true
+    use_lockfile = true
+  }
+}

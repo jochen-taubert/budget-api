@@ -1,0 +1,25 @@
+{
+  "name": "mobility-budget-api",
+  "version": "1.0.0",
+  "description": "Mobilitätsbudget-API: Lambda + DynamoDB + API Gateway, per Terraform",
+  "scripts": {
+    "typecheck": "tsc",
+    "test": "node --test test/*.test.ts",
+    "build": "esbuild src/index.ts --bundle --platform=node --target=node22 --format=esm --outfile=dist/index.mjs --external:@aws-sdk/* --sourcemap --legal-comments=none",
+    "check": "npm run typecheck && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-dynamodb": "^3.1156.0",
+    "@aws-sdk/client-s3": "^3.1156.0",
+    "@aws-sdk/lib-dynamodb": "^3.1156.0",
+    "@types/aws-lambda": "^8.10.164",
+    "@types/node": "^26.6.5",
+    "esbuild": "^0.28.2",
+    "typescript": "^7.0.2"
+  },
+  "type": "module",
+  "private": true,
+  "engines": {
+    "node": ">=22.18"
+  }
+}

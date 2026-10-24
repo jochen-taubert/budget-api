@@ -1,0 +1,12 @@
+# Nach terraform.tfvars kopieren und anpassen.
+
+project_name = "mobility-budget"
+aws_region   = "eu-central-1"
+
+# Demo ohne Login:
+auth_mode = "none"
+
+# Mit Keycloak (oder Cognito: https://cognito-idp.<region>.amazonaws.com/<pool-id>):
+# auth_mode     = "jwt"
+# oidc_issuer   = "https://auth.example.de/realms/benefits"
+# oidc_audience = "benefits-api"
